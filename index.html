@@ -3,40 +3,54 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>KIASMA Games</title>
+    <meta name="description" content="KIASMA公式サイト">
+    <title>KIASMA</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Kiasma Games</h1>
-        <nav>
-            <a href="#games">Games</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+    <main class="home">
+        <h1 class="logo-frame image-frame" data-placeholder="KIASMA LOGO">
+            <img
+                class="logo"
+                src="assets/kiasma-logo.png"
+                alt="KIASMA"
+                width="360"
+                height="390"
+            >
+        </h1>
+
+        <div class="visual-frame image-frame" data-placeholder="MAIN VISUAL">
+            <img
+                class="main-visual"
+                src="assets/home-visual.jpg"
+                alt="KIASMAのメインビジュアル"
+                width="2400"
+                height="1228"
+            >
+        </div>
+
+        <nav class="primary-nav" aria-label="メインナビゲーション">
+            <a href="about/">about us</a>
+            <a href="games/">games</a>
+            <a href="https://www.instagram.com/kiasma_official/" target="_blank" rel="noopener noreferrer">instagram</a>
+            <a href="https://x.com/necky_kiasma" target="_blank" rel="noopener noreferrer">X</a>
         </nav>
-    </header>
-
-    <main>
-        <section>
-            <h2>Games from Kiasma</h2>
-            <p>インディーゲームスタジオ KIASMA Games の公式サイトです。</p>
-        </section>
-
-        <section id="games">
-            <h2>Games</h2>
-            <p>ここに作品紹介を載せます。</p>
-        </section>
-
-        <section id="about">
-            <h2>About</h2>
-            <p>Kiasma Gamesについて。</p>
-        </section>
-
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>お問い合わせ: contact@kiasma-games.com</p>
-            <img src="/assets/face_necky_nomal0002.png" alt="NeckyFace" width="128" height="70" loading="lazy">
-        </section>
     </main>
+
+    <script>
+        document.querySelectorAll(".image-frame img").forEach((image) => {
+            const frame = image.closest(".image-frame");
+
+            const showPlaceholder = () => frame.classList.add("is-missing");
+            const showImage = () => frame.classList.remove("is-missing");
+
+            image.addEventListener("error", showPlaceholder);
+            image.addEventListener("load", showImage);
+
+            if (image.complete) {
+                image.naturalWidth ? showImage() : showPlaceholder();
+            }
+        });
+    </script>
 </body>
 </html>
