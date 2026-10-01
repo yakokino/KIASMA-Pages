@@ -86,7 +86,7 @@ img {
 
 .primary-nav {
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(3, auto);
     justify-content: center;
     gap: clamp(52px, 7.2vw, 112px);
     margin-top: clamp(32px, 3.5vw, 39px);
